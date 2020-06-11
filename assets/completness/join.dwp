@@ -1,0 +1,13 @@
+
+select * from tbl_order o JOIN detil_order do ON (o.id_order = do.id_order) JOIN tbl_produk i ON (do.id_barang = i.id_produk)
+
+select a.id_order,a.nama_penerima, c.nama_produk, b.jumlah_barang, b.harga,a.alamat_lengkap,a.tgl_order,a.batas_bayar,a.kurir, a.service, a.total_harga,a.catatan FROM tbl_order a JOIN detil_order b ON a.id_order=b.id_order JOIN tbl_produk C ON b.id_barang=C.id_produk
+
+select a.id_order,b.tgl_bayar, a.nama_penerima,a.kota, a.total_harga, a.ongkir, b.bank, b.jumlah, b.resi FROM tbl_order a INNER JOIN tbl_konfirm b ON a.id_order=b.id_order
+
+
+
+
+BEGIN
+UPDATE stok_barang set stok = stok - NEW.qty WHERE kd_brg = NEW.kd_brg;
+END
